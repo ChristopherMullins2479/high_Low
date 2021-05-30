@@ -8,6 +8,7 @@ import random
 #variables
 counter = 0
 game_Round = 0
+cur_Card = ""
 player_Deck_Size = 15
 deck_Hearts = ["AH","2H","3H","4H","5H","6H","7H","8H","9H","10H","JH","QH","KH",]
 deck_Diamonds = ["AD","2D","3D","4D","5D","6D","7D","8D","9D","10D","JD","QD","KD",]
@@ -30,8 +31,7 @@ def rules_Function():
 def game_Menue_Screen_Function(game_Round):
     print("\n-----Welcome To High Low-----")
     print("Round : "+str(game_Round))
-    print("Your Deck")
-    print(player_Deck)
+    deal_Card(player_Deck_Size)
 
 #new game function
 def new_Game_Function(game_Round):
@@ -62,6 +62,15 @@ def gen_Player_Deck():
             player_Deck[i]=deck_Spades[card_Choser]
             i = i + 1
     #print(player_Deck)
+
+#function to deal cards
+def deal_Card(player_Deck_Size):
+    print(player_Deck)
+    card_Choser2 = (random.randint(-1,player_Deck_Size))
+    cur_Card = player_Deck[card_Choser2]
+    print("Card :" + cur_Card)
+    del player_Deck[card_Choser2]
+    print(player_Deck)
 
 #Depending on user choice will run different blocks of code
 while(counter != -1): 
